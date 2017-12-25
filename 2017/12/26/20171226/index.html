@@ -1,0 +1,718 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-react -code_style," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="此文章仅限于益联益家的web小伙伴,请对号入座~(此后开发请认真详细掌握此代码规范,关系自身绩效)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React代码规范">
+<meta property="og:url" content="http://qiaotongxin.cc/2017/12/26/20171226/index.html">
+<meta property="og:site_name" content="乔同X的博客">
+<meta property="og:description" content="此文章仅限于益联益家的web小伙伴,请对号入座~(此后开发请认真详细掌握此代码规范,关系自身绩效)">
+<meta property="og:updated_time" content="2017-12-25T03:43:15.499Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React代码规范">
+<meta name="twitter:description" content="此文章仅限于益联益家的web小伙伴,请对号入座~(此后开发请认真详细掌握此代码规范,关系自身绩效)">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://qiaotongxin.cc/2017/12/26/20171226/"/>
+
+  <title> React代码规范 | 乔同X的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">乔同X的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">iOS && react-native Developer</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-diamond"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-server"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-shield"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React代码规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-12-26T00:00:00+08:00" content="2017-12-26">
+              2017-12-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>此文章仅限于益联益家的web小伙伴,请对号入座~(此后开发请认真详细掌握此代码规范,关系自身绩效)</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h1 id="React代码规范"><a href="#React代码规范" class="headerlink" title="React代码规范"></a>React代码规范</h1><h2 id="Basic-Rules-基本原则"><a href="#Basic-Rules-基本原则" class="headerlink" title="Basic Rules(基本原则)"></a>Basic Rules(基本原则)</h2><p>每个文件中只包含一个React组件。</p>
+<p>尽可能地使用JSX语法。</p>
+<p>除非不用JSX语法创建一个应用，否则不要使用React.createElement方法。</p>
+<p>每个文件只包含一个React组件 （联系紧密的组件可以使用{命名空的形式}）；</p>
+<p>始终使用JSX语法，不要使用 React.creatElement 创建 ReactElement, 以提高编写速度、可读性、可维护性（没有 JSX 转换的特殊场景例外，如在 console 中测试组件）；</p>
+<p>使用 ES6 .</p>
+<p>命名规范</p>
+<p>扩展名：使用 .js 作为 React 组件的扩展名；</p>
+<p>文件名： 使用大驼峰命名法， 如 MyComponent.js ；</p>
+<p>组件命名：组件名称和文件名一致，如MyComponent.js里的组件名应该是MyComponent；一个目录的根组件使用index.js命名，以目录名称作为组件名称；</p>
+<p>引用命名：React 组件使用大驼峰命名法， HTML标签、组件使用小驼峰命名法</p>
+<p>带命名空间的组件</p>
+<p>如果一个组件有许多关联子组件，可以以该组件作为命名空间编写、调用子组件。</p>
+<p>varMyFormComponent=React.createClass({…});MyFormComponent.Row=React.createClass({…});MyFormComponent.Label=React.createClass({…});MyFormComponent.Input=React.createClass({…});varForm=MyFormComponent;varApp=();</p>
+<p>组件声明</p>
+<p>不要使用 displayName 来命名组件，通过引用来命名。</p>
+<p>引用来命名的写法</p>
+<p>const ReservationCard = React.creatClass({</p>
+<p>}）；</p>
+<p>export defalut ReservationCard;</p>
+<p>属性</p>
+<p>属性命名</p>
+<p>React组件的属性使用小驼峰命名法</p>
+<p>使用 className 代替 class 属性</p>
+<p>使用 htmlFor 代替 for 属性</p>
+<p>传递给 HTML 的属性</p>
+<p>传递给 HTML 元素的自定义属性， 需要添加 data- 前缀， React 不会渲染非标准属性；</p>
+<p>无障碍属性 aria- 可以正常使用。</p>
+<h2 id="Component-组件规范"><a href="#Component-组件规范" class="headerlink" title="Component(组件规范)"></a>Component(组件规范)</h2><h3 id="Class-与-React-createClass方法"><a href="#Class-与-React-createClass方法" class="headerlink" title="Class 与 React.createClass方法"></a>Class 与 React.createClass方法</h3><p>尽可能地使用ES6中的类的语法，除非有特殊的对于Mixin的需求。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">const Listing = React.createClass(&#123;</div><div class="line">  render() &#123;</div><div class="line">    return &lt;div /&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// good</div><div class="line">class Listing extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return &lt;div /&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="组件命名"><a href="#组件命名" class="headerlink" title="组件命名"></a>组件命名</h3><p>扩展名：使用.jsx作为React组件的扩展名。</p>
+<p>文件名：使用帕斯卡命名法命名文件，譬如ReservationCard.jsx。</p>
+<p>引用命名：使用帕斯卡命名法命名组件和camelCase命名实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">const reservationCard = require(&apos;./ReservationCard&apos;);</div><div class="line"></div><div class="line">// good</div><div class="line">const ReservationCard = require(&apos;./ReservationCard&apos;);</div><div class="line"></div><div class="line">// bad</div><div class="line">const ReservationItem = &lt;ReservationCard /&gt;;</div><div class="line"></div><div class="line">// good</div><div class="line">const reservationItem = &lt;ReservationCard /&gt;;</div></pre></td></tr></table></figure></p>
+<h3 id="Declaration-声明"><a href="#Declaration-声明" class="headerlink" title="Declaration(声明)"></a>Declaration(声明)</h3><p>不要使用displayName来命名组件，而使用引用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">export default React.createClass(&#123;</div><div class="line">  displayName: &apos;ReservationCard&apos;,</div><div class="line">  // stuff goes here</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// good</div><div class="line">export default class ReservationCard extends React.Component &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h3><p>对于Props的命名使用camelCase。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">&lt;Foo</div><div class="line">  UserName=&quot;hello&quot;</div><div class="line">  phone_number=&#123;12345678&#125;</div><div class="line">/&gt;</div><div class="line"></div><div class="line">// good</div><div class="line">&lt;Foo</div><div class="line">  userName=&quot;hello&quot;</div><div class="line">  phoneNumber=&#123;12345678&#125;</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<p>将Props或者State的声明写在类外。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import React, &#123; Component &#125; from &apos;react&apos;;</div><div class="line">import PropTypes from &apos;prop-types&apos;</div><div class="line"></div><div class="line">const propTypes = &#123;</div><div class="line">  id: PropTypes.number.isRequired,</div><div class="line">  url: PropTypes.string.isRequired,</div><div class="line">  text: PropTypes.string,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">const defaultProps = &#123;</div><div class="line">  text: &apos;Hello World&apos;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default class Link extends Component &#123;</div><div class="line">  static methodsAreOk() &#123;</div><div class="line">    return true;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return &lt;a href=&#123;this.props.url&#125; data-id=&#123;this.props.id&#125;&gt;&#123;this.props.text&#125;&lt;/a&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Link.propTypes = propTypes;</div><div class="line">Link.defaultProps = defaultProps;</div></pre></td></tr></table></figure>
+<h2 id="JSX-JSX规范"><a href="#JSX-JSX规范" class="headerlink" title="JSX(JSX规范)"></a>JSX(JSX规范)</h2><h3 id="Alignment-对齐"><a href="#Alignment-对齐" class="headerlink" title="Alignment(对齐)"></a>Alignment(对齐)</h3><p>跟随如下的JSX的语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">&lt;Foo superLongParam=&quot;bar&quot;</div><div class="line">     anotherSuperLongParam=&quot;baz&quot; /&gt;</div><div class="line"></div><div class="line">// good</div><div class="line">&lt;Foo</div><div class="line">  superLongParam=&quot;bar&quot;</div><div class="line">  anotherSuperLongParam=&quot;baz&quot;</div><div class="line">/&gt;</div><div class="line"></div><div class="line">// if props fit in one line then keep it on the same line</div><div class="line">&lt;Foo bar=&quot;bar&quot; /&gt;</div><div class="line"></div><div class="line">// children get indented normally</div><div class="line">&lt;Foo</div><div class="line">  superLongParam=&quot;bar&quot;</div><div class="line">  anotherSuperLongParam=&quot;baz&quot;</div><div class="line">&gt;</div><div class="line">  &lt;Spazz /&gt;</div><div class="line">&lt;/Foo&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="Quotes"><a href="#Quotes" class="headerlink" title="Quotes"></a>Quotes</h3><p>对于JSX的属性用双引号表示，对于其他属性，用单引号表示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">&lt;Foo bar=&apos;bar&apos; /&gt;</div><div class="line"></div><div class="line">// good</div><div class="line">&lt;Foo bar=&quot;bar&quot; /&gt;</div><div class="line"></div><div class="line">// bad</div><div class="line">&lt;Foo style=&#123;&#123; left: &quot;20px&quot; &#125;&#125; /&gt;</div><div class="line"></div><div class="line">// good</div><div class="line">&lt;Foo style=&#123;&#123; left: &apos;20px&apos; &#125;&#125; /&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="Spacing-空格"><a href="#Spacing-空格" class="headerlink" title="Spacing(空格)"></a>Spacing(空格)</h3><p>在自闭合的标签中仅使用单空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">&lt;Foo/&gt;</div><div class="line"></div><div class="line">// very bad</div><div class="line">&lt;Foo                 /&gt;</div><div class="line"></div><div class="line">// bad</div><div class="line">&lt;Foo</div><div class="line"> /&gt;</div><div class="line"></div><div class="line">// good</div><div class="line">&lt;Foo /&gt;</div></pre></td></tr></table></figure>
+<h3 id="多段"><a href="#多段" class="headerlink" title="多段"></a>多段</h3><p>当JSX包含多行代码时，将它们包含在小括号中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">/// bad</div><div class="line">render() &#123;</div><div class="line">  return &lt;MyComponent className=&quot;long body&quot; foo=&quot;bar&quot;&gt;</div><div class="line">           &lt;MyChild /&gt;</div><div class="line">         &lt;/MyComponent&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">render() &#123;</div><div class="line">  return (</div><div class="line">    &lt;MyComponent className=&quot;long body&quot; foo=&quot;bar&quot;&gt;</div><div class="line">      &lt;MyChild /&gt;</div><div class="line">    &lt;/MyComponent&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good, when single line</div><div class="line">render() &#123;</div><div class="line">  const body = &lt;div&gt;hello&lt;/div&gt;;</div><div class="line">  return &lt;MyComponent&gt;&#123;body&#125;&lt;/MyComponent&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Naming-方法命名"><a href="#Naming-方法命名" class="headerlink" title="Naming(方法命名)"></a>Naming(方法命名)</h3><p>对于一个React组件的内部方法，不要使用下划线作为前缀。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">React.createClass(&#123;</div><div class="line">  _onClickSubmit() &#123;</div><div class="line">    // do stuff</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // other stuff</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// good</div><div class="line">class extends React.Component &#123;</div><div class="line">  onClickSubmit() &#123;</div><div class="line">    // do stuff</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // other stuff</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="顺序"><a href="#顺序" class="headerlink" title="顺序"></a>顺序</h2><h3 id="Ordering-for-class-extends"><a href="#Ordering-for-class-extends" class="headerlink" title="Ordering for class extends"></a>Ordering for class extends</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">React.Component:</div><div class="line">optional static methods</div><div class="line">constructor</div><div class="line">getChildContext</div><div class="line">componentWillMount</div><div class="line">componentDidMount</div><div class="line">componentWillReceiveProps</div><div class="line">shouldComponentUpdate</div><div class="line">componentWillUpdate</div><div class="line">componentDidUpdate</div><div class="line">componentWillUnmount</div><div class="line">clickHandlers or eventHandlers like onClickSubmit() or onChangeDescription()</div><div class="line">getter methods for render like getSelectReason() or getFooterContent()</div><div class="line">optional render methods like renderNavigation() or renderProfilePicture()</div><div class="line">render</div></pre></td></tr></table></figure>
+<h3 id="Ordering-for-React-createClass-eslint-react-sort-comp"><a href="#Ordering-for-React-createClass-eslint-react-sort-comp" class="headerlink" title="Ordering for React.createClass: eslint: react/sort-comp"></a>Ordering for React.createClass: eslint: react/sort-comp</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">displayName</div><div class="line">propTypes</div><div class="line">contextTypes</div><div class="line">childContextTypes</div><div class="line">mixins</div><div class="line">statics</div><div class="line">defaultProps</div><div class="line">getDefaultProps</div><div class="line">getInitialState</div><div class="line">getChildContext</div><div class="line">componentWillMount</div><div class="line">componentDidMount</div><div class="line">componentWillReceiveProps</div><div class="line">shouldComponentUpdate</div><div class="line">componentWillUpdate</div><div class="line">componentDidUpdate</div><div class="line">componentWillUnmount</div><div class="line">clickHandlers or eventHandlers like onClickSubmit() or onChangeDescription()</div><div class="line">getter methods for render like getSelectReason() or getFooterContent()</div><div class="line">optional render methods like renderNavigation() or renderProfilePicture()</div><div class="line">render</div></pre></td></tr></table></figure>
+<h2 id="isMounted"><a href="#isMounted" class="headerlink" title="isMounted"></a>isMounted</h2><h3 id="不要使用-isMounted-eslint-react-no-is-mounted"><a href="#不要使用-isMounted-eslint-react-no-is-mounted" class="headerlink" title="不要使用 isMounted. eslint: react/no-is-mounted"></a>不要使用 isMounted. eslint: react/no-is-mounted</h3><p>为什么这样做? isMounted是一种反模式，当使用 ES6 类风格声明 React 组件时该属性不可用，并且即将被官方弃用。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://github.com/airbnb/javascript/tree/master/react" target="_blank" rel="external">airbnb</a></p>
+<p><a href="https://github.com/airbnb/javascript" target="_blank" rel="external">ES6英文版</a></p>
+<p><a href="https://github.com/yuche/javascript" target="_blank" rel="external">ES6中文版</a></p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="乔同X WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao.png" alt="乔同X Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react-code-style/" rel="tag">#-react -code_style</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/25/20171225/" rel="next" title="React.js 前端开发预备知识">
+                <i class="fa fa-chevron-left"></i> React.js 前端开发预备知识
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTg5Mi82NDU3">
+  <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+  </script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/me.png"
+               alt="乔同X" />
+          <p class="site-author-name" itemprop="name">乔同X</p>
+          <p class="site-description motion-element" itemprop="description">转向react-native开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Josin22" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5559102394" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://iamyuhang.com/" title="冀宇航" target="_blank">冀宇航</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guiyongdong.com/" title="贵永冬" target="_blank">贵永冬</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React代码规范"><span class="nav-number">1.</span> <span class="nav-text">React代码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Rules-基本原则"><span class="nav-number">1.1.</span> <span class="nav-text">Basic Rules(基本原则)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component-组件规范"><span class="nav-number">1.2.</span> <span class="nav-text">Component(组件规范)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-与-React-createClass方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">Class 与 React.createClass方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件命名"><span class="nav-number">1.2.2.</span> <span class="nav-text">组件命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Declaration-声明"><span class="nav-number">1.2.3.</span> <span class="nav-text">Declaration(声明)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Props"><span class="nav-number">1.2.4.</span> <span class="nav-text">Props</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX-JSX规范"><span class="nav-number">1.3.</span> <span class="nav-text">JSX(JSX规范)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Alignment-对齐"><span class="nav-number">1.3.1.</span> <span class="nav-text">Alignment(对齐)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quotes"><span class="nav-number">1.3.2.</span> <span class="nav-text">Quotes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spacing-空格"><span class="nav-number">1.3.3.</span> <span class="nav-text">Spacing(空格)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多段"><span class="nav-number">1.3.4.</span> <span class="nav-text">多段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">1.4.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Naming-方法命名"><span class="nav-number">1.4.1.</span> <span class="nav-text">Naming(方法命名)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序"><span class="nav-number">1.5.</span> <span class="nav-text">顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ordering-for-class-extends"><span class="nav-number">1.5.1.</span> <span class="nav-text">Ordering for class extends</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ordering-for-React-createClass-eslint-react-sort-comp"><span class="nav-number">1.5.2.</span> <span class="nav-text">Ordering for React.createClass: eslint: react/sort-comp</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isMounted"><span class="nav-number">1.6.</span> <span class="nav-text">isMounted</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不要使用-isMounted-eslint-react-no-is-mounted"><span class="nav-number">1.6.1.</span> <span class="nav-text">不要使用 isMounted. eslint: react/no-is-mounted</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乔同X</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
