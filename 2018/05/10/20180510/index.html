@@ -1,0 +1,698 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="闲的没事,总是会去codewars练两把,做几道算法题,学习一下国外的大牛的牛逼之处,这里也算记录分享一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享一下codewars里的算法题">
+<meta property="og:url" content="http://qiaotongxin.cc/2018/05/10/20180510/index.html">
+<meta property="og:site_name" content="乔同X的博客">
+<meta property="og:description" content="闲的没事,总是会去codewars练两把,做几道算法题,学习一下国外的大牛的牛逼之处,这里也算记录分享一下">
+<meta property="og:updated_time" content="2018-05-10T03:18:33.100Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分享一下codewars里的算法题">
+<meta name="twitter:description" content="闲的没事,总是会去codewars练两把,做几道算法题,学习一下国外的大牛的牛逼之处,这里也算记录分享一下">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://qiaotongxin.cc/2018/05/10/20180510/"/>
+
+  <title> 分享一下codewars里的算法题 | 乔同X的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">乔同X的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">iOS && react-native Developer</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-diamond"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-server"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-shield"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                分享一下codewars里的算法题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-05-10T00:00:00+08:00" content="2018-05-10">
+              2018-05-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>闲的没事,总是会去<a href="https://www.codewars.com/" target="_blank" rel="external">codewars</a>练两把,做几道算法题,学习一下国外的大牛的牛逼之处,这里也算记录分享一下</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<p>[TOC]</p>
+<p>#Kata</p>
+<h2 id="1-6-kyu-Write-Number-in-Expanded-Form"><a href="#1-6-kyu-Write-Number-in-Expanded-Form" class="headerlink" title="1 [6 kyu]Write Number in Expanded Form"></a>1 [6 kyu]Write Number in Expanded Form</h2><p>Intructions:<br>You will be given a number and you will need to return it as a string in Expanded Form. For example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">expandedForm(12); // Should return &apos;10 + 2&apos;</div><div class="line">expandedForm(42); // Should return &apos;40 + 2&apos;</div><div class="line">expandedForm(70304); // Should return &apos;70000 + 300 + 4&apos;</div></pre></td></tr></table></figure></p>
+<p>NOTE: All numbers will be whole numbers greater than 0.</p>
+<p>Solution:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function expandedForm(num) &#123;</div><div class="line">  // Your code here</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>SampleTests:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Test.assertEquals(expandedForm(12), &apos;10 + 2&apos;);</div><div class="line">Test.assertEquals(expandedForm(42), &apos;40 + 2&apos;);</div><div class="line">Test.assertEquals(expandedForm(70304), &apos;70000 + 300 + 4&apos;);</div></pre></td></tr></table></figure>
+<h2 id="2-6-kyu-CamelCase-Method"><a href="#2-6-kyu-CamelCase-Method" class="headerlink" title="2 [6 kyu]CamelCase Method"></a>2 [6 kyu]CamelCase Method</h2><p>Intructions:<br>Write simple .camelCase method (camel_case function in PHP, CamelCase in C# or camelCase in Java) for strings. All words must have their first letter capitalized without spaces.<br>For instance:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;hello case&quot;.camelCase() =&gt; HelloCase</div><div class="line">&quot;camel case word&quot;.camelCase() =&gt; CamelCaseWord</div></pre></td></tr></table></figure></p>
+<p>Don’t forget to rate this kata! Thanks :)</p>
+<p>Solution:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String.prototype.camelCase=function()&#123;</div><div class="line">  //your code here</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>SampleTests:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Test.describe(&quot;Basic tests&quot;,_=&gt;&#123;</div><div class="line">Test.assertEquals(&quot;test case&quot;.camelCase(), &quot;TestCase&quot;);</div><div class="line">Test.assertEquals(&quot;camel case method&quot;.camelCase(), &quot;CamelCaseMethod&quot;);</div><div class="line">Test.assertEquals(&quot;say hello &quot;.camelCase(), &quot;SayHello&quot;);</div><div class="line">Test.assertEquals(&quot; camel case word&quot;.camelCase(), &quot;CamelCaseWord&quot;);</div><div class="line">Test.assertEquals(&quot;&quot;.camelCase(), &quot;&quot;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="3-6-kyu-Reversed-Words"><a href="#3-6-kyu-Reversed-Words" class="headerlink" title="3 [6 kyu] Reversed Words"></a>3 [6 kyu] Reversed Words</h2><p>Intructions:</p>
+<p>Complete the solution so that it reverses all of the words within the string passed in.<br>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">reverseWords(&quot;The greatest victory is that which requires no battle&quot;)</div><div class="line">// should return &quot;battle no requires which that is victory greatest The&quot;</div></pre></td></tr></table></figure></p>
+<p>Solution:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function reverseWords()&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>SampleTests:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">describe(&quot;reverseWords&quot;,function()&#123;</div><div class="line">  it(&quot;should work for some examples&quot;, function()&#123;</div><div class="line">    Test.assertEquals(reverseWords(&quot;hello world!&quot;), &quot;world! hello&quot;)</div><div class="line">    Test.assertEquals(reverseWords(&quot;yoda doesn&apos;t speak like this&quot; ),  &quot;this like speak doesn&apos;t yoda&quot;)</div><div class="line">    Test.assertEquals(reverseWords(&quot;foobar&quot;                       ),  &quot;foobar&quot;)</div><div class="line">    Test.assertEquals(reverseWords(&quot;kata editor&quot;                  ),  &quot;editor kata&quot;)</div><div class="line">    Test.assertEquals(reverseWords(&quot;row row row your boat&quot;        ),  &quot;boat your row row row&quot;)</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="4-6-kyu-Replace-With-Alphabet-Position"><a href="#4-6-kyu-Replace-With-Alphabet-Position" class="headerlink" title="4 [6 kyu] Replace With Alphabet Position"></a>4 [6 kyu] Replace With Alphabet Position</h2><p>Intructions:<br>Welcome.<br>In this kata you are required to, given a string, replace every letter with its position in the alphabet.<br>If anything in the text isn’t a letter, ignore it and don’t return it.<br>a being 1, b being 2, etc.<br>As an example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alphabet_position(&quot;The sunset sets at twelve o&apos; clock.&quot;)</div></pre></td></tr></table></figure>
+<p>Should return “20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11” as a string.</p>
+<p>Solution:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function alphabetPosition() &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>SampleTests:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Test.assertEquals(alphabetPosition(&quot;The sunset sets at twelve o&apos; clock.&quot;), &quot;20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11&quot;);</div><div class="line">Test.assertEquals(alphabetPosition(&quot;The narwhal bacons at midnight.&quot;), &quot;20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20&quot;);</div></pre></td></tr></table></figure>
+<h2 id="5-6-kyu-Triple-trouble"><a href="#5-6-kyu-Triple-trouble" class="headerlink" title="5 [6 kyu] Triple trouble"></a>5 [6 kyu] Triple trouble</h2><p>Write a function<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tripledouble(num1,num2)</div></pre></td></tr></table></figure></p>
+<p>which takes in numbers num1 and num2 and returns 1 if there is a straight triple of a number at any place in num1 and also a straight double of the same number in num2.<br>For example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">tripledouble(451999277, 41177722899) == 1 // num1 has straight triple 999s and </div><div class="line">                                          // num2 has straight double 99s</div><div class="line"></div><div class="line">tripledouble(1222345, 12345) == 0 // num1 has straight triple 2s but num2 has only a single 2</div><div class="line"></div><div class="line">tripledouble(12345, 12345) == 0</div><div class="line"></div><div class="line">tripledouble(666789, 12345667) == 1</div></pre></td></tr></table></figure></p>
+<p>If this isn’t the case, return 0</p>
+<p>Solution:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function tripledouble(num1, num2) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>SampleTests:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">describe(&apos;Initial Tests&apos;,_=&gt;&#123;</div><div class="line">  Test.assertEquals(tripledouble(673816111777444900,9674451144),1);</div><div class="line">  Test.assertEquals(tripledouble(1222345, 12345),0);</div><div class="line">  Test.assertEquals(tripledouble(12345, 12345),0);</div><div class="line">  Test.assertEquals(tripledouble(666789, 12345667),1);</div><div class="line">  Test.assertEquals(tripledouble(10560002, 100),1);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="乔同X WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao.png" alt="乔同X Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#-js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/26/20171226/" rel="next" title="React代码规范">
+                <i class="fa fa-chevron-left"></i> React代码规范
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTg5Mi82NDU3">
+  <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+  </script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/me.png"
+               alt="乔同X" />
+          <p class="site-author-name" itemprop="name">乔同X</p>
+          <p class="site-description motion-element" itemprop="description">转向react-native开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Josin22" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5559102394" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://iamyuhang.com/" title="冀宇航" target="_blank">冀宇航</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guiyongdong.com/" title="贵永冬" target="_blank">贵永冬</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-kyu-Write-Number-in-Expanded-Form"><span class="nav-number">1.</span> <span class="nav-text">1 [6 kyu]Write Number in Expanded Form</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-kyu-CamelCase-Method"><span class="nav-number">2.</span> <span class="nav-text">2 [6 kyu]CamelCase Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-kyu-Reversed-Words"><span class="nav-number">3.</span> <span class="nav-text">3 [6 kyu] Reversed Words</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-kyu-Replace-With-Alphabet-Position"><span class="nav-number">4.</span> <span class="nav-text">4 [6 kyu] Replace With Alphabet Position</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-kyu-Triple-trouble"><span class="nav-number">5.</span> <span class="nav-text">5 [6 kyu] Triple trouble</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乔同X</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
