@@ -1,0 +1,714 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-React," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="沉寂了大半年许久,终于准备写下这个篇纯技术干货,结合项目,由于是公司项目,只能用demo作为讲解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享一个打造react-native壳,react肉的跨平台三端通吃的APP的记录">
+<meta property="og:url" content="http://qiaotongxin.cc/2018/06/27/20180627/index.html">
+<meta property="og:site_name" content="乔同X的博客">
+<meta property="og:description" content="沉寂了大半年许久,终于准备写下这个篇纯技术干货,结合项目,由于是公司项目,只能用demo作为讲解">
+<meta property="og:image" content="https://raw.githubusercontent.com/Josin22/image_source/master/rn_package_json.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Josin22/image_source/master/react_package_json.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Josin22/image_source/master/demo_android_keystore.png">
+<meta property="og:updated_time" content="2018-06-29T04:49:21.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分享一个打造react-native壳,react肉的跨平台三端通吃的APP的记录">
+<meta name="twitter:description" content="沉寂了大半年许久,终于准备写下这个篇纯技术干货,结合项目,由于是公司项目,只能用demo作为讲解">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Josin22/image_source/master/rn_package_json.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://qiaotongxin.cc/2018/06/27/20180627/"/>
+
+  <title> 分享一个打造react-native壳,react肉的跨平台三端通吃的APP的记录 | 乔同X的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">乔同X的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">iOS && react-native Developer</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-diamond"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-server"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-shield"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                分享一个打造react-native壳,react肉的跨平台三端通吃的APP的记录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-06-27T00:00:00+08:00" content="2018-06-27">
+              2018-06-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>沉寂了大半年许久,终于准备写下这个篇纯技术干货,结合项目,由于是公司项目,只能用demo作为讲解</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<p>[TOC]</p>
+<h1 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h1><p>FB提供的脚手架各创建项目一套:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">create-react-native-app  //rn app 脚手架</div><div class="line">create-react-app  //web app 脚手架</div></pre></td></tr></table></figure>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="RN"><a href="#RN" class="headerlink" title="RN:"></a>RN:</h2><p> native app 只需要加载一个全屏的webview即可,牵扯到的坑也只有native和js的通讯了,等会项目会有介绍,这里暴露一下package.json</p>
+<p><img src="https://raw.githubusercontent.com/Josin22/image_source/master/rn_package_json.png" alt="image"></p>
+<h2 id="React"><a href="#React" class="headerlink" title="React:"></a>React:</h2><p> web app其实页面不多,技能要求也算中规中矩吧</p>
+<ul>
+<li>RSA MD5 加密</li>
+<li>文件的上传</li>
+<li>二维码识别</li>
+<li>socket通讯</li>
+<li>indexedDB操作</li>
+<li>js 和native 相互调用</li>
+</ul>
+<p>这里也暴露一下package.json<br><img src="https://raw.githubusercontent.com/Josin22/image_source/master/react_package_json.png" alt="image"></p>
+<h1 id="web-app-开发"><a href="#web-app-开发" class="headerlink" title="web app 开发"></a>web app 开发</h1><h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置:"></a>路由配置:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class App extends Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;div className=&quot;App&quot;&gt;</div><div class="line">	      &lt;BrowserRouter&gt;</div><div class="line">		      &lt;div&gt;</div><div class="line">			      &lt;Route path=&quot;/&quot; exact component=&#123;Page2&#125; /&gt;</div><div class="line">			      &lt;Route path=&quot;/index&quot; component=&#123;Index&#125; /&gt;</div><div class="line">		      &lt;/div&gt;</div><div class="line">	      &lt;/BrowserRouter&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果需要重定向指定页面把Route换成Protected包起来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const Protected = (&#123;component: _comp, ...rest&#125;) =&gt; &#123;</div><div class="line">    //判断条件 重定向指定路由</div><div class="line">	let isLogin = true</div><div class="line">	return &lt;Route &#123; ...rest&#125; render = &#123;props =&gt; isLogin ? &lt; _comp /&gt; : &lt;Redirect to =&quot;index&quot;/&gt;&#125;/&gt;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="跨域配置"><a href="#跨域配置" class="headerlink" title="跨域配置"></a>跨域配置</h2><p>最简单的代理,在package.json增加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&quot;proxy&quot;: &#123;</div><div class="line">  &quot;/yours&quot;: &#123;</div><div class="line">    &quot;target&quot;: &quot;http://your api server/&quot;,</div><div class="line">    &quot;changeOrigin&quot;: true</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="封装个axios请求基类"><a href="#封装个axios请求基类" class="headerlink" title="封装个axios请求基类"></a>封装个axios请求基类</h2><p>axios很强大,简单配置下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">import axios from &apos;axios&apos;</div><div class="line"></div><div class="line">const AUTH_TOKEN = &quot;&quot;</div><div class="line">//全局配置</div><div class="line">// axios.defaults.baseURL = &apos;https://api.example.com&apos;;</div><div class="line">axios.defaults.headers.common[&apos;Authorization&apos;] = AUTH_TOKEN;</div><div class="line">axios.defaults.headers.post[&apos;Content-Type&apos;] = &apos;application/x-www-form-urlencoded&apos;;</div><div class="line"></div><div class="line">// http request 请求拦截器，有token值则配置上token值</div><div class="line">axios.interceptors.request.use(</div><div class="line">	config =&gt; &#123;</div><div class="line">		let token = &quot;&quot;</div><div class="line">		if (token) &#123;  // 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了</div><div class="line">			config.headers.Authorization = token;</div><div class="line">		&#125;</div><div class="line">		return config;</div><div class="line">	&#125;,</div><div class="line">	err =&gt; &#123;</div><div class="line">		return Promise.reject(err);</div><div class="line">	&#125;);</div><div class="line"></div><div class="line">// http response 服务器响应拦截器，这里拦截401错误，并重新跳入登页重新获取token</div><div class="line">axios.interceptors.response.use(</div><div class="line">	response =&gt; &#123;</div><div class="line">		return response;</div><div class="line">	&#125;,</div><div class="line">	error =&gt; &#123;</div><div class="line">		if (error.response) &#123;</div><div class="line">			switch (error.response.status) &#123;</div><div class="line">				case 401:</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		return Promise.reject(error.response.data)</div><div class="line">	&#125;);</div><div class="line"></div><div class="line">export default axios;</div></pre></td></tr></table></figure></p>
+<h2 id="RSA-md-示例"><a href="#RSA-md-示例" class="headerlink" title="RSA md 示例"></a>RSA md 示例</h2><p>把请求的params传过来,加签后返回string(ps:我们项目里只做加签)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">export function encryptData(params) &#123;</div><div class="line">    if (_.isEmpty(params)) &#123;</div><div class="line">        return &quot;&quot;</div><div class="line">    &#125;</div><div class="line">	//TODO: 数组转json字符</div><div class="line">    if (_.get(params,&apos;fixqrs&apos;))&#123;</div><div class="line">    	params = &#123;</div><div class="line">		    ...params,</div><div class="line">		    fixqrs:JSON.stringify(params.fixqrs)</div><div class="line">	    &#125;</div><div class="line">    &#125;</div><div class="line">    let keyArray = []</div><div class="line">    for (let key in params) &#123;</div><div class="line">        keyArray.push(key);</div><div class="line">    &#125;</div><div class="line">    keyArray.sort();</div><div class="line">    let sb = &quot;&quot;;</div><div class="line">    for (let i = 0; i &lt; keyArray.length; i++) &#123;</div><div class="line">        sb += keyArray[i] + &quot;=&quot; + params[keyArray[i]] + &quot;&amp;&quot;;</div><div class="line">    &#125;</div><div class="line">	let pkcs8key = &quot;your key&quot;;</div><div class="line">	let rsaPrivateKey = new jsrsasign.RSAKey();</div><div class="line">	/*由于java后台生成的key格式是pkcs8格式 而前端js插件是pkcs1格式解析，故使用KEYUTIL.getKey(pkcs8key)获取私钥*/</div><div class="line">	rsaPrivateKey = jsrsasign.KEYUTIL.getKey(pkcs8key);</div><div class="line">	let sigval = rsaPrivateKey.sign(sb.substring(0, sb.length - 1), &quot;sha1&quot;);</div><div class="line">    return sigval</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>用户名密码比较隐私,md5+salt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export function mdPassword(pw) &#123;</div><div class="line">	return md5(pw+&apos;your salt&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 上传文件</div><div class="line"> * @param url</div><div class="line"> * @param params</div><div class="line"> * @param file</div><div class="line"> * @returns &#123;AxiosPromise&lt;any&gt;&#125;</div><div class="line"> */</div><div class="line">export function n_uploadFile(url,params,file) &#123;</div><div class="line">	//header-sign-params</div><div class="line">	let param = new FormData()</div><div class="line">	_.forEach(params,(value,key) =&gt; &#123;</div><div class="line">		param.append(key, value)</div><div class="line">	&#125;)</div><div class="line">	_.forEach(file,(value,key) =&gt; &#123;</div><div class="line">		param.append(key, value)</div><div class="line">	&#125;)</div><div class="line">	let config = &#123;</div><div class="line">		headers: &#123;</div><div class="line">			&apos;Content-Type&apos;: &apos;multipart/form-data&apos;,</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return axios.post(url, param, config)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="二维码识别"><a href="#二维码识别" class="headerlink" title="二维码识别"></a>二维码识别</h2><p>获取的file需要转一下url,调用tool里getObjectURL()方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">qrcode.qrcode.decode(getObjectURL(file))</div><div class="line">qrcode.qrcode.callback = (d, status) =&gt;&#123;</div><div class="line">	console.log(&apos;&apos;,d)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="socket通讯"><a href="#socket通讯" class="headerlink" title="socket通讯"></a>socket通讯</h2><p>傻瓜式操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">connect = () =&gt; &#123;</div><div class="line">	let url = `your socket server ip`</div><div class="line">	this.ws = new Sockette(url, &#123;</div><div class="line">		timeout: 2e3,</div><div class="line">		maxAttempts: 10,</div><div class="line">		onopen: e =&gt; console.log(&apos;Connected!&apos;, e),</div><div class="line">		onmessage: e =&gt; console.log(&apos;onmessage!&apos;, e),</div><div class="line">	&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">close = () =&gt; &#123;</div><div class="line">	if (this.ws)&#123;</div><div class="line">		this.ws.close()</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="indexedDB操作"><a href="#indexedDB操作" class="headerlink" title="indexedDB操作"></a>indexedDB操作</h2><p>关于indexedDB,这个不多说,取代sqlite,高性能储存查询,鉴于js db操作全是异步,各种回调有点恶心,不过dexie利用promise,大大解决了回调地狱,下面看看,如何用这个利器吧,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">import Dexie from &apos;dexie&apos;;</div><div class="line"></div><div class="line">const db = new Dexie(&quot;Cache_Image_DB&quot;);</div><div class="line">db.version(1).stores(&#123; file: &apos;++id&apos; &#125;);</div><div class="line"></div><div class="line">export const findFiles = async(file) =&gt; &#123;</div><div class="line">	return db.file</div><div class="line">		.filter(item =&gt; item.name === file.name)</div><div class="line">		.toArray()</div><div class="line">&#125;</div><div class="line"></div><div class="line">export const addFile = async(file) =&gt; &#123;</div><div class="line">	return db.file</div><div class="line">		.add(file)</div><div class="line">&#125;</div><div class="line">export const deleteFile = async(id) =&gt; &#123;</div><div class="line">	return db.file</div><div class="line">		.delete(id)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="比较坑的js-native通讯"><a href="#比较坑的js-native通讯" class="headerlink" title="比较坑的js native通讯"></a>比较坑的js native通讯</h2><p>先说Android吧,在RN官网的组件WebView,如果你h5里有用到选取相册,那WebView绝对的不支持,因为在Android设备需要你自己去实现,iOS则正常,发消息都是window.postMessage(),收消息也是在onMessage回调里,<br>再说iOS,官网的WebView组件是基于UIWebView,性能烂的一比,通讯也只能js注入,无法达到WKWebView的高性能,上下文注入的快捷,<br>综上,rn app就装了两个库<br><a href="https://github.com/lucasferreira/react-native-webview-android" target="_blank" rel="external">react-native-webview-android</a><br><a href="https://github.com/CRAlpha/react-native-wkwebview" target="_blank" rel="external">react-native-wkwebview-reborn</a><br>所以呢,js &amp;&amp; native 相互通讯的方式也有点差异,</p>
+<p>//native  ==&gt;  js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//react-native-webview-android</div><div class="line">this.refs.WEBVIEW_REF.postMessage(data);</div><div class="line">//react-native-wkwebview</div><div class="line">this.refs.WK_WebView.evaluateJavaScript(`receivedMessageFromReactNative($&#123;data&#125;)`)</div></pre></td></tr></table></figure></p>
+<p>//js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> //android</div><div class="line">window.onload = () =&gt; &#123;</div><div class="line">	document.addEventListener(&apos;message&apos;,  (e) =&gt;  &#123;</div><div class="line">		this.handleMessage(e.data)</div><div class="line">	&#125;);</div><div class="line">&#125;</div><div class="line">//ios</div><div class="line">window.receivedMessageFromReactNative &amp;&amp; window.receivedMessageFromReactNative(data =&gt; &#123;</div><div class="line">	this.handleMessage(data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>// js  ==&gt;  native<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export const postMessage = (message) =&gt; &#123;</div><div class="line">	//react-native-webview-android</div><div class="line">	window.webView&amp;&amp;window.webView.postMessage(message)</div><div class="line">	//react-native-wkwebview</div><div class="line">	!_.isEmpty(window,&apos;webkit.messageHandlers.reactNative&apos;)&amp;&amp;window.webkit.messageHandlers.reactNative.postMessage(message);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>//native<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//react-native-webview-android</div><div class="line">onMessage =(event) =&gt; &#123;</div><div class="line">	console.log(&apos;android_webview on message&apos;,e)	</div><div class="line">&#125;</div><div class="line">	//react-native-wkwebview</div><div class="line">onMessage = (e) =&gt; &#123;</div><div class="line">	console.log(&apos;wk_webview on message&apos;,e.nativeEvent)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="RN-App开发"><a href="#RN-App开发" class="headerlink" title="RN App开发"></a>RN App开发</h1><h2 id="按设备加载webview组件"><a href="#按设备加载webview组件" class="headerlink" title="按设备加载webview组件"></a>按设备加载webview组件</h2><p>只需要判断一下设备,如果是Android就加载react-native-webview-android这个库,iOS就加载react-native-wkwebview,(ps:这里我各自封装了两个库)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">	return (</div><div class="line">	  &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">		  &#123;</div><div class="line">			  this.platform === &apos;ios&apos;?</div><div class="line">				  &lt;WebViewIOS ref=&quot;web_ios&quot; url=&#123;SITE_URL&#125;/&gt;</div><div class="line">				  :</div><div class="line">				  &lt;WebViewANDROID ref=&quot;web_android&quot; url=&#123;SITE_URL&#125;/&gt;</div><div class="line">		  &#125;</div><div class="line">	  &lt;/View&gt;</div><div class="line">	);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="android设备的返回虚拟键返回处理"><a href="#android设备的返回虚拟键返回处理" class="headerlink" title="android设备的返回虚拟键返回处理"></a>android设备的返回虚拟键返回处理</h2><p>android设备有个返回虚拟键,所有拦截一下事件,稍作处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">componentWillMount() &#123;</div><div class="line">	BackHandler.addEventListener(&apos;hardwareBackPress&apos;, this.handleBack)</div><div class="line">	AppState.addEventListener(&apos;change&apos;, this.handleAppStateChange);</div><div class="line">&#125;</div><div class="line">componentWillUnmount() &#123;</div><div class="line">	BackHandler.removeEventListener(&apos;hardwareBackPress&apos;, this.handleBack)</div><div class="line">&#125;</div><div class="line"></div><div class="line">handleBack = () =&gt; &#123;</div><div class="line">	this.refs.web_android.goBack();</div><div class="line">	return true;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h1><h2 id="rn-Android-打包部署"><a href="#rn-Android-打包部署" class="headerlink" title="rn Android 打包部署"></a>rn Android 打包部署</h2><p>1.Android studio 创建keystore<br><img src="https://raw.githubusercontent.com/Josin22/image_source/master/demo_android_keystore.png" alt="image"><br>2.your project/android/gradle.properties 声明一下变量,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MYAPP_RELEASE_STORE_FILE=your-keystore.keystore</div><div class="line">MYAPP_RELEASE_KEY_ALIAS=your alias name</div><div class="line">MYAPP_RELEASE_STORE_PASSWORD=your keystore password</div><div class="line">MYAPP_RELEASE_KEY_PASSWORD=your key password</div></pre></td></tr></table></figure></p>
+<p>在your project/android/app/build.gradle 引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line">    release &#123;</div><div class="line">        keyAlias MYAPP_RELEASE_KEY_ALIAS</div><div class="line">        keyPassword MYAPP_RELEASE_KEY_PASSWORD</div><div class="line">        storeFile file(MYAPP_RELEASE_STORE_FILE)</div><div class="line">        storePassword MYAPP_RELEASE_STORE_PASSWORD</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.写个shell 自动打包出apk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">cd ~/your rn project name/</div><div class="line">curl &quot;localhost:8081/index.android.bundle?platform=android&amp;dev=false&amp;minify=true&quot; -o &quot;android/app/src/main/assets/index.android.bundle&quot;</div><div class="line">cd android &amp;&amp; ./gradlew assembleRelease</div><div class="line">cd app/build/outputs/apk/release</div><div class="line">open .</div></pre></td></tr></table></figure></p>
+<h2 id="rn-iOS-打包部署"><a href="#rn-iOS-打包部署" class="headerlink" title="rn iOS 打包部署"></a>rn iOS 打包部署</h2><p>ios打包就相对简单了,前提需要在developer.apple.com 配好provisioning profile 和开发生产证书,这里我就不多说了<br>同样,写个shell 创建一个生产环境的jsboundle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">cd ~/your rn project name/</div><div class="line">react-native bundle --entry-file index.js --platform ios --dev false --bundle-output release_ios/main.jsbundle --assets-dest release_ios/</div></pre></td></tr></table></figure>
+<p>把release_ios/main.jsbundle,拖到ios项目里, 顺便改一下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//这个是本地jsboundle</div><div class="line">//  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@&quot;index&quot; fallbackResource:nil];</div><div class="line">//生产环境的jsboundle,名字要对应哦</div><div class="line">  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@&quot;main&quot; withExtension:@&quot;jsbundle&quot;];</div></pre></td></tr></table></figure></p>
+<p>然后你就可以一劳永逸的直接achieve,然后直接上传appstore,或者打出ADHOC包内测一下,</p>
+<p>#中间遇到的错<br>关于中间的遇到的报错,大概Stack Overflow或者某度都可以,如果你有遇到什么错,也可以在下面评论一下</p>
+<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a href="https://github.com/Josin22/rn-webapp-demo" target="_blank" rel="external">rn-webapp-demo</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="乔同X WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao.png" alt="乔同X Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React/" rel="tag">#-React</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/10/20180510/" rel="next" title="分享一下codewars里的算法题">
+                <i class="fa fa-chevron-left"></i> 分享一下codewars里的算法题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTg5Mi82NDU3">
+  <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+  </script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/me.png"
+               alt="乔同X" />
+          <p class="site-author-name" itemprop="name">乔同X</p>
+          <p class="site-description motion-element" itemprop="description">转向react-native开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Josin22" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5559102394" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://iamyuhang.com/" title="冀宇航" target="_blank">冀宇航</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guiyongdong.com/" title="贵永冬" target="_blank">贵永冬</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目搭建"><span class="nav-number">1.</span> <span class="nav-text">项目搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识点"><span class="nav-number">2.</span> <span class="nav-text">知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RN"><span class="nav-number">2.1.</span> <span class="nav-text">RN:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React"><span class="nav-number">2.2.</span> <span class="nav-text">React:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-app-开发"><span class="nav-number">3.</span> <span class="nav-text">web app 开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由配置"><span class="nav-number">3.1.</span> <span class="nav-text">路由配置:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域配置"><span class="nav-number">3.2.</span> <span class="nav-text">跨域配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装个axios请求基类"><span class="nav-number">3.3.</span> <span class="nav-text">封装个axios请求基类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA-md-示例"><span class="nav-number">3.4.</span> <span class="nav-text">RSA md 示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传"><span class="nav-number">3.5.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维码识别"><span class="nav-number">3.6.</span> <span class="nav-text">二维码识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socket通讯"><span class="nav-number">3.7.</span> <span class="nav-text">socket通讯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#indexedDB操作"><span class="nav-number">3.8.</span> <span class="nav-text">indexedDB操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较坑的js-native通讯"><span class="nav-number">3.9.</span> <span class="nav-text">比较坑的js native通讯</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-App开发"><span class="nav-number">4.</span> <span class="nav-text">RN App开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#按设备加载webview组件"><span class="nav-number">4.1.</span> <span class="nav-text">按设备加载webview组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android设备的返回虚拟键返回处理"><span class="nav-number">4.2.</span> <span class="nav-text">android设备的返回虚拟键返回处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包发布"><span class="nav-number">5.</span> <span class="nav-text">打包发布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rn-Android-打包部署"><span class="nav-number">5.1.</span> <span class="nav-text">rn Android 打包部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rn-iOS-打包部署"><span class="nav-number">5.2.</span> <span class="nav-text">rn iOS 打包部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#demo"><span class="nav-number">6.</span> <span class="nav-text">demo</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乔同X</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
