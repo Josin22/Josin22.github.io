@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="-React," />
 
 
 
@@ -84,26 +84,16 @@
 
 
 
-<meta name="description" content="前一段时间,项目里加入了自动化测试.隧在我司各大ruby大神的结伴下,共同完成这个”鬼测试”.">
+<meta name="description" content="最近项目里用到了多选图片二维码识别上传,由于二维码识别是异步回调,再次列举一下如何在循环回调引用变量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转Appium自动化测试">
-<meta property="og:url" content="http://qiaotongxin.cc/2016/08/13/20160813/index.html">
+<meta property="og:title" content="关于解决JS遍历多个异步回调完美引用外部变量的几个办法">
+<meta property="og:url" content="http://qiaotongxin.cc/2018/08/08/20180712/index.html">
 <meta property="og:site_name" content="乔同X的博客">
-<meta property="og:description" content="前一段时间,项目里加入了自动化测试.隧在我司各大ruby大神的结伴下,共同完成这个”鬼测试”.">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium.png">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium_1.png">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium_2.png">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium_3.png">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium_spect.png">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium_text.png">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium_local.png">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium_misc.png">
-<meta property="og:image" content="http://qiaotongxin.cc/images/posts/appium_code.png">
-<meta property="og:updated_time" content="2016-08-17T02:27:11.000Z">
+<meta property="og:description" content="最近项目里用到了多选图片二维码识别上传,由于二维码识别是异步回调,再次列举一下如何在循环回调引用变量">
+<meta property="og:updated_time" content="2018-08-08T03:21:22.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玩转Appium自动化测试">
-<meta name="twitter:description" content="前一段时间,项目里加入了自动化测试.隧在我司各大ruby大神的结伴下,共同完成这个”鬼测试”.">
-<meta name="twitter:image" content="http://qiaotongxin.cc/images/posts/appium.png">
+<meta name="twitter:title" content="关于解决JS遍历多个异步回调完美引用外部变量的几个办法">
+<meta name="twitter:description" content="最近项目里用到了多选图片二维码识别上传,由于二维码识别是异步回调,再次列举一下如何在循环回调引用变量">
 
 
 
@@ -124,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://qiaotongxin.cc/2016/08/13/20160813/"/>
+  <link rel="canonical" href="http://qiaotongxin.cc/2018/08/08/20180712/"/>
 
-  <title> 玩转Appium自动化测试 | 乔同X的博客 </title>
+  <title> 关于解决JS遍历多个异步回调完美引用外部变量的几个办法 | 乔同X的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +246,7 @@
             
             
               
-                玩转Appium自动化测试
+                关于解决JS遍历多个异步回调完美引用外部变量的几个办法
               
             
           </h1>
@@ -268,8 +258,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-13T00:00:00+08:00" content="2016-08-13">
-              2016-08-13
+            <time itemprop="dateCreated" datetime="2018-08-08T00:00:00+08:00" content="2018-08-08">
+              2018-08-08
             </time>
           </span>
 
@@ -282,8 +272,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -315,54 +305,14 @@
       
 
       
-        <blockquote class="blockquote-center"><p>前一段时间,项目里加入了自动化测试.隧在我司各大ruby大神的结伴下,共同完成这个”鬼测试”.</p>
+        <blockquote class="blockquote-center"><p>最近项目里用到了多选图片二维码识别上传,由于二维码识别是异步回调,再次列举一下如何在循环回调引用变量</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="开读之前你需要知道的"><a href="#开读之前你需要知道的" class="headerlink" title="开读之前你需要知道的"></a>开读之前你需要知道的</h1><h2 id="Appium是个什么鬼"><a href="#Appium是个什么鬼" class="headerlink" title="Appium是个什么鬼"></a>Appium是个什么鬼</h2><p><a href="http://appium.io/index.html?lang=zh" target="_blank" rel="external">Appium</a>是一个移动端的自动化框架，可用于测试原生应用，移动网页应用和混合型应用，且是跨平台的。可用于IOS和Android以及firefox的操作系统。原生的应用是指用android或ios的sdk编写的应用，移动网页应用是指网页应用，类似于ios中safari应用或者Chrome应用或者类浏览器的应用。混合应用是指一种包裹webview的应用,原生应用于网页内容交互性的应用。<br>重要的是Appium是跨平台的，何为跨平台，意思就是可以针对不同的平台用一套api来编写测试用例。</p>
-<h2 id="Appium环境搭建"><a href="#Appium环境搭建" class="headerlink" title="Appium环境搭建"></a>Appium环境搭建</h2><p>先把一下环境装好备用</p>
-<ul>
-<li>Java    </li>
-<li>Command_Line_Tools  (<a href="http://obh6cwxkc.bkt.clouddn.com/Command_Line_Tools_OS_X_10.11_for_Xcode_7.3.1.dmg" target="_blank" rel="external">http://obh6cwxkc.bkt.clouddn.com/Command_Line_Tools_OS_X_10.11_for_Xcode_7.3.1.dmg</a>)</li>
-<li>ruby (<a href="https://ruby-china.org/" target="_blank" rel="external">https://ruby-china.org/</a>)</li>
-<li>brew (<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a>)</li>
-<li>node (<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a>)    </li>
-<li>npm  </li>
-<li>Appium  (npm install -g appium 安装即可)</li>
-</ul>
-<p>当然你也完全可以不用这样安装appium,直接用dmg安装包also ok~<br><a href="http://appium.io/index.html?lang=zh" target="_blank" rel="external">appium 官网</a><br>如果你嫌网速慢,也可以用我下载好的download<br><a href="http://obh6cwxkc.bkt.clouddn.com/appium-1.5.3.dmg" target="_blank" rel="external">appium me</a></p>
-<p>打开Appium 应用程序,点击3监测一下环境<br><img src="/images/posts/appium.png" alt="images"><br>红色框框代表iOS测试所需要的,绿色代表安装成功<br><img src="/images/posts/appium_1.png" alt="images"></p>
-<h1 id="开战实际项目开发"><a href="#开战实际项目开发" class="headerlink" title="开战实际项目开发"></a>开战实际项目开发</h1><h2 id="自动化测试项目搭建"><a href="#自动化测试项目搭建" class="headerlink" title="自动化测试项目搭建"></a>自动化测试项目搭建</h2><ul>
-<li>.zip 是.app的压缩文件,当然你也可以直接用XXX.app (xcode编译项目,Products目录下有XXX.app)</li>
-<li>common 里包含着测试公用的.rb文件</li>
-<li>gemfile 所需的gem包</li>
-<li>spec 文件包含所有模块的测试rb文件</li>
-</ul>
-<p><img src="/images/posts/appium_2.png" alt="images"></p>
-<h2 id="模拟器运行项目"><a href="#模拟器运行项目" class="headerlink" title="模拟器运行项目"></a>模拟器运行项目</h2><h3 id="配置appium"><a href="#配置appium" class="headerlink" title="配置appium"></a>配置appium</h3><ul>
-<li>APP路径要对</li>
-<li>设备模拟器和版本匹配要对</li>
-<li>红框内必选(boudleID也可以不写)</li>
-</ul>
-<p><img src="/images/posts/appium_3.png" alt="images"></p>
-<h3 id="配置完点击-gt-问号-inspector-弹出inspector-视图元素检查页面"><a href="#配置完点击-gt-问号-inspector-弹出inspector-视图元素检查页面" class="headerlink" title="配置完点击=&gt; 问号(inspector) 弹出inspector 视图元素检查页面"></a>配置完点击=&gt; 问号(inspector) 弹出inspector 视图元素检查页面</h3><p><img src="/images/posts/appium_spect.png" alt="images"><br><img src="/images/posts/appium_text.png" alt="images"><br><img src="/images/posts/appium_local.png" alt="images"><br><img src="/images/posts/appium_misc.png" alt="images"></p>
-<p>点击完Record<br><img src="/images/posts/appium_code.png" alt="images"></p>
-<p>对于如何编写测试代码,两种方式,一种你可以直接在页面区操作页面,同时在代码区生成测试代码(此代码是利用xpath遍历定位元素,效率不高).另一种是用appium提供的定位元素方法编写测试代码(<a href="http://www.rubydoc.info/gems/appium_lib/Appium/Ios" target="_blank" rel="external">这里是appium的所有方法</a>)</p>
-<h3 id="如果弹-不出此页面-你可以尝试"><a href="#如果弹-不出此页面-你可以尝试" class="headerlink" title="如果弹 不出此页面,你可以尝试"></a>如果弹 不出此页面,你可以尝试</h3><ul>
-<li>更换server address : 127.0.0.1</li>
-<li>检查打包的.app文件是否为开发证书编译</li>
-<li>检查当前xcode的模拟器和当前选择的设备是否一致</li>
-<li>如果还不行,请尝试更换.app</li>
-</ul>
-<h3 id="rb怎么写"><a href="#rb怎么写" class="headerlink" title=".rb怎么写?"></a>.rb怎么写?</h3><p>可能有些小白读到这里还是不知道该如何下手,这里我已经基本的框架搭建完成,供大家小试.<br><a href="http://obh6cwxkc.bkt.clouddn.com/appium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.zip" target="_blank" rel="external">appium demo</a></p>
-<p>启动appium 测试</p>
-<ul>
-<li>要 开启服务</li>
-<li>要 rspec 执行命令</li>
-<li>然后模拟器就会自动开启执行你rspec里所有的.rb文件</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这里面的坑,还有很多.多去testhome里看看,appium提供的方法很多,这是一个要花费很多时间去尝试的经历.重要的元素定位方法,测试用例的编写,ruby语言的了解,如果以上都完成了,那你就可以去了解如何用Jenkins部署项目自动化测试了~~</p>
-<h1 id="资源链接"><a href="#资源链接" class="headerlink" title="资源链接"></a>资源链接</h1><p><a href="https://testerhome.com/" target="_blank" rel="external">testhome</a></p>
-<p>细心找找testhome里的资源,总会有你想要的.</p>
+<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>由于JS里for循环是同步任务,而reader.onloadend是异步任务,所以同步的会先执行完循环结束,等到异步回调引用外部变量所以,始终是循环最后一次值,so,归纳了下面三种方式</p>
+<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>Promise.all函数可以并行调用参数中的Promise对象方法，并且将所有Promise对象方法返回值作为数组输入到then回调中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">fileReaderPromise = (file) =&gt;&#123;</div><div class="line">   let promise = new Promise((resolve, reject) =&gt;&#123;</div><div class="line">			let reader = new FileReader()</div><div class="line">			reader.readAsDataURL(file)</div><div class="line">			reader.onloadend = (e) =&gt; &#123;</div><div class="line">				let new_result = e.target.result</div><div class="line">				resolve(new_result)</div><div class="line">			&#125;</div><div class="line">   &#125;);</div><div class="line">   return promise;</div><div class="line">&#125;</div><div class="line"></div><div class="line">handle_images = (files) =&gt; &#123;</div><div class="line">	let filesPromise = files.map(file =&gt; this.fileReaderPromise(file))</div><div class="line">	Promise.all(filesPromise)</div><div class="line">		.then(data =&gt; &#123;</div><div class="line">			data.map((image,index) =&gt; console.log(&apos;image&apos;,image,&apos;index&apos;,index))</div><div class="line">		&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="自执行函数"><a href="#自执行函数" class="headerlink" title="自执行函数"></a>自执行函数</h1><p>创建自执行函数局部作用域,保证外部变量不受影响</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">handle_images = (files) =&gt; &#123;</div><div class="line">	_.map(files, (file,index) =&gt; &#123;</div><div class="line">		(function(new_file,new_index)&#123;</div><div class="line">			let reader = new FileReader()</div><div class="line">			reader.readAsDataURL(file)</div><div class="line">			reader.onloadend = (e) =&gt; &#123;</div><div class="line">				let new_result = e.target.result</div><div class="line">				//...这里你可以引用new_file,new_index</div><div class="line">				console.log(&apos;new_file&apos;,new_file,&apos;new_index&apos;,new_index)</div><div class="line">			&#125;</div><div class="line">		 &#125;.bind(this)(file,index)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">handle_images = (i) =&gt; &#123;</div><div class="line">	let new_i = i</div><div class="line">	if (new_i&lt;files.length)&#123;</div><div class="line">		let file = files[i]</div><div class="line">		let reader = new FileReader()</div><div class="line">		reader.readAsDataURL(file)</div><div class="line">		reader.onloadend = (e) =&gt; &#123;</div><div class="line">			let new_result = e.target.result</div><div class="line">			//...</div><div class="line">			console.log(&apos;file&apos;,file,&apos;i&apos;,i)</div><div class="line">			</div><div class="line">			//逻辑处理完后</div><div class="line">			new_i++;</div><div class="line">			this.handle_images(new_i)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//调用</div><div class="line">this.handle_images(0)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -404,22 +354,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/React/" rel="tag">#-React</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/11/20160811/" rel="next" title="如何利用Reveal神器查看各大APP UI搭建层级">
-                <i class="fa fa-chevron-left"></i> 如何利用Reveal神器查看各大APP UI搭建层级
+              <a href="/2018/06/27/20180627/" rel="next" title="分享一个打造react-native壳,react肉的跨平台三端通吃的APP的记录">
+                <i class="fa fa-chevron-left"></i> 分享一个打造react-native壳,react肉的跨平台三端通吃的APP的记录
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/22/20160822/" rel="prev" title="如何实现百度外卖APP个人中心头像"浪"起来的动画效果">
-                如何实现百度外卖APP个人中心头像"浪"起来的动画效果 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -584,7 +536,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开读之前你需要知道的"><span class="nav-number">1.</span> <span class="nav-text">开读之前你需要知道的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Appium是个什么鬼"><span class="nav-number">1.1.</span> <span class="nav-text">Appium是个什么鬼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Appium环境搭建"><span class="nav-number">1.2.</span> <span class="nav-text">Appium环境搭建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开战实际项目开发"><span class="nav-number">2.</span> <span class="nav-text">开战实际项目开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动化测试项目搭建"><span class="nav-number">2.1.</span> <span class="nav-text">自动化测试项目搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟器运行项目"><span class="nav-number">2.2.</span> <span class="nav-text">模拟器运行项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置appium"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置appium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置完点击-gt-问号-inspector-弹出inspector-视图元素检查页面"><span class="nav-number">2.2.2.</span> <span class="nav-text">配置完点击=> 问号(inspector) 弹出inspector 视图元素检查页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果弹-不出此页面-你可以尝试"><span class="nav-number">2.2.3.</span> <span class="nav-text">如果弹 不出此页面,你可以尝试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rb怎么写"><span class="nav-number">2.2.4.</span> <span class="nav-text">.rb怎么写?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资源链接"><span class="nav-number">4.</span> <span class="nav-text">资源链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#描述"><span class="nav-number">1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise"><span class="nav-number">2.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自执行函数"><span class="nav-number">3.</span> <span class="nav-text">自执行函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归"><span class="nav-number">4.</span> <span class="nav-text">递归</span></a></li></ol></div>
             
           </div>
         </section>
